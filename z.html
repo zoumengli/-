@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /*#main{*/
+        /*width: 100px;*/
+        /*height: 100px;*/
+        /*background-image: linear-gradient(135deg, transparent 15px, #58a 0),*/
+
+        /*linear-gradient(-135deg, transparent 15px, #58a 0),*/
+
+        /*linear-gradient(-45deg, transparent 15px, #58a 0),*/
+
+        /*linear-gradient(45deg, transparent 15px, #58a 0);*/
+
+        /*background-repeat: no-repeat;*/
+
+        /*background-size: 50% 50%;*/
+
+        /*background-position: left top, right top, right bottom, left bottom;*/
+        /*cursor: pointer;*/
+        /*}*/
+        /*#main {*/
+        /*width: 100px;*/
+        /*height: 40px;*/
+        /*line-height: 40px;*/
+        /*background:linear-gradient(-135deg, #fff 15px, #162e48 0);*/
+        /*color: #fff;*/
+        /*padding: 5px 15px;*/
+        /*text-align: center;*/
+        /*box-shadow: 0 0 1px 1px #ffff00;*/
+        /*margin-bottom: 30px;*/
+        /*position: relative;*/
+        /*cursor: pointer;*/
+        /*}*/
+        /*#main:after {*/
+        /*content: ' ';*/
+        /*border: solid transparent;*/
+        /*position: absolute;*/
+        /*border-width: 15px;*/
+        /*border-top-color: #000;*/
+        /*border-right-color: #000;*/
+        /*top: -1px;*/
+        /*right: -1px;*/
+        /*}*/
+        /*#main{*/
+        /*width: 100px;*/
+        /*height: 100px;*/
+        /*background: #000000;*/
+        /*cursor: pointer;*/
+        /*clip-path:*/
+        /*polygon(*/
+        /*15px 0, calc(100% - 15px) 0, 100% 15px,*/
+        /*100% calc(100% -  15px), calc(100% - 15px) 100%,*/
+        /*15px 100%, 0 calc(100% - 15px), 0 15px*/
+        /*);*/
+        /*margin: 200px auto;*/
+        /*}*/
+        body{
+            background: #000;
+        }
+        #main{
+            width: 200px;
+            height: 200px;
+            padding: 25px;
+            background-image:linear-gradient(#58a,#58a)
+            ,linear-gradient(to left,#0292f3 33.3%,transparent 0,transparent 66.6%  , #0292f3 0)
+            ,linear-gradient(#0292f3 33.3%,transparent 0,transparent 66.6%  , #0292f3 0)
+            ,linear-gradient(to right,#0292f3 33.3%,transparent 0,transparent 66.6%  , #0292f3 0)
+            ,linear-gradient(to bottom,#0292f3 33.3%,transparent 0,transparent 66.6%  , #0292f3 0);
+            background-clip: content-box,border-box,border-box,border-box,border-box;
+            background-position: 0 0,0 0,100% 0,0 100%,0;
+            background-size: 100%,100% 5px,5px 100%,100% 5px,5px 100%;
+            background-repeat: repeat,no-repeat,no-repeat,no-repeat,no-repeat;
+        }
+        #next{
+            width: 600px;
+            height: 500px;
+            border: 52px solid transparent;
+            border-image-source: url("san.png");
+            border-image-slice: 52 fill;
+            border-image-repeat: stretch;
+            margin: 50px auto;
+        }
+        #border{
+            width: 100%;
+            height: 100%;
+            /*border: 2px solid #00e5fc;*/
+            background: #00e5fc;
+            /*padding: 2px;*/
+            /*box-shadow:0 1px 5px rgb(250,0,0);*/
+            clip-path: polygon(0 0, 5% 0, 6% 1%, 19% 1%, 20% 0, 100% 0, 100% 100%, 0 100%);
+        }
+        #inner{
+            width:-webkit-calc(100% - 4px);
+            width:-moz-calc(100% - 4px);
+            width:calc(100% - 4px);
+            height:-webkit-calc(100% - 4px);
+            height:-moz-calc(100% - 4px);
+            height:calc(100% - 4px);
+            /*border: 2px solid #00e5fc;*/
+            background: #000000;
+            position: relative;
+            left: 2px;
+            top: 2px;
+            clip-path: polygon(0 0, calc(5% - 3px) 0, calc(6% - 3px) 1%, 19% 1%, 20% 0, 100% 0, 100% 100%, 0 100%);
+        }
+        #sign{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            /*left: 5%;*/
+            top: -100%;
+            background: #00e5fc;
+            clip-path: polygon(calc(5% + 3px) 0, calc(20% - 3px) 0, calc(19% - 2px) calc(1% - 2px), calc(6% + 2px) calc(1% - 2px));
+        }
+    </style>
+</head>
+<body>
+<!--<div id="main"></div>-->
+<div id="next">
+    <div id="border">
+        <div id="inner"></div>
+    </div>
+    <div id="sign"></div>
+</div>
+<input id="width" title="宽" onchange="change()" type="number">
+<input id="height" title="高" onchange="change()" type="number">
+<script type="text/javascript">
+    document.getElementById('width').value = 600;
+    document.getElementById('height').value = 500;
+    function change() {
+        var width  = document.getElementById('width').value;
+        var height = document.getElementById('height').value;
+        console.log(width);
+        document.getElementById('next').style.width  = width+'px';
+        document.getElementById('next').style.height = height+'px';
+    }
+</script>
+</body>
+</html>
